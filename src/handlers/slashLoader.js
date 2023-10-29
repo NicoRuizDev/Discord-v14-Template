@@ -4,6 +4,7 @@ const fs = require("node:fs");
 const util = require("util");
 const readdir = util.promisify(fs.readdir);
 const options = require("../options.json");
+require("dotenv").config();
 
 async function slashLoader() {
   const slashCommands = [];
@@ -24,7 +25,7 @@ async function slashLoader() {
     }
   });
 
-  const rest = new REST({ version: "10" }).setToken(process.env.token);
+  const rest = new REST({ version: "10" }).setToken(process.env.Token);
 
   try {
     console.log(
